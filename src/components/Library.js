@@ -10,18 +10,25 @@ class Library extends Component {
 
   render () {
     return (
-      <section className="library">
-        {
-          this.state.albums.map( (album, index) =>
-            <Link to={`/album/${album.slug}`} key={index}>
-              <img src={album.albumCover} alt={album.title} />
-              <div>{album.title}</div>
-              <div>{album.artist}</div>
-              <div>{album.songs.length} songs</div>
-            </Link>
-          )
-        }
-      </section>
+      <table className="mdl-data-table mdl-js-data-table">
+        <tbody>
+          {
+            this.state.albums.map( (album, index) =>
+              <tr>
+                <td className="mdl-data-table__cell--non-numeric">
+                  <Link to={`/album/${album.slug}`} key={index}>
+                  <img src={album.albumCover} alt={album.title} />
+                  </Link>
+                    <h1 className="mdl-card__supporting-text"><strong>{album.title}</strong><br />
+                      {album.artist}<br />
+                      {album.songs.length} songs<br />
+                    </h1>
+                </td>
+              </tr>
+              )
+            }
+        </tbody>
+      </table>
     );
   }
 }
