@@ -14,7 +14,7 @@ class Library extends Component {
         <tbody>
           {
             this.state.albums.map( (album, index) =>
-              <tr>
+              <tr key={index}>
                 <td className="mdl-data-table__cell--non-numeric">
                   <Link to={`/album/${album.slug}`} key={index}>
                   <img src={album.albumCover} alt={album.title} />
